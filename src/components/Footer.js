@@ -1,7 +1,7 @@
 import React from 'react'
 import {CommonContext} from './CommonContext'
 
-class Main extends React.Component{
+class Footer extends React.Component{
   
   render() {
   
@@ -10,7 +10,7 @@ class Main extends React.Component{
 
 {
     ({color}) => (
-        <h1 style={{ backgroundColor:color }}>Hello This is Main Page</h1>
+        <h1 className='footer' style={{backgroundColor:color }}>Footer Page</h1>
     )
 }
     </CommonContext.Consumer>
@@ -18,4 +18,4 @@ class Main extends React.Component{
 }
 }
 
-export default Main
+export default Footer
