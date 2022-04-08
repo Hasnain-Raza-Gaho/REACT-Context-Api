@@ -6,9 +6,9 @@ import UpdateButton from "./components/UpdateButton";
 class App extends React.Component {
   constructor() {
     super();
-    this.updateColor = () => {
+    this.updateColor = (color) => {
       this.setState({
-        color: "red",
+        color: color,
       });
     };
 

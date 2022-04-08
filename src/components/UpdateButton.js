@@ -10,7 +10,7 @@ function UpdateButton(){
 
 {
     ({updateColor}) => (
-        <button onClick={()=>updateColor()}>Update Color</button>
+        <button onClick={()=>updateColor('yellow')}>Update Color</button>
     )
 }
     </CommonContext.Consumer>
