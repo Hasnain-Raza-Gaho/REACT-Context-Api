@@ -1,38 +1,27 @@
-import React, { Component } from 'react';
-export class App extends Component {
+import './App.css'
+import React, { useState, useMemo} from 'react'
 
-  constructor(){
-    super();
-    this.state ={
-      count : 0
-    }
-    console.log( 'consutructor run',this.state.count)
-  }
-  
-  // getdata  (){
-  //   this.setState({
-  //     count: this.state.count+1
-  //   })
-  // }
+function App() {
+  const [count, setCount] = useState(1)
+  const [item, setItem] = useState(10)
 
-  componentDidMount(){
-    console.log('componnetdidmount');
-  }
-  render() {
-    
+const multiCountMemo = useMemo( function multiCount() {
+  console.log('multicount')
+  return count * 5
+})
 
 
-    console.log('render run')
-    return (
-      <div>
-        <h1>life cycle methods..</h1>
-        <p>{this.state.count}</p>
-        <button >click</button>
-        {/* <button onClick={()=>this.getdata()}>click</button> */}
+  return (
+    <div className="App">
+      <h1>UseMemo Hook</h1>
+      <h2>Count : {count}</h2>
+      <h2>item : {item}</h2>
+      <h2>{multiCountMemo}</h2>
+      <button onClick={()=> setCount(count+1)}>Update Count</button>
+      <button onClick={()=> setItem(item*5)}>Update Item</button>
 
-      </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default App
