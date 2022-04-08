@@ -1,27 +1,31 @@
-import './App.css'
-import React, { useState, useMemo} from 'react'
+import React from "react";
+import { CommonContext } from "./components/CommonContext";
+import Main from "./components/Main";
+import UpdateButton from "./components/UpdateButton";
 
-function App() {
-  const [count, setCount] = useState(1)
-  const [item, setItem] = useState(10)
+class App extends React.Component {
+  constructor() {
+    super();
+    this.updateColor = () => {
+      this.setState({
+        color: "red",
+      });
+    };
 
-const multiCountMemo = useMemo( function multiCount() {
-  console.log('multicount')
-  return count * 5
-})
-
-
-  return (
-    <div className="App">
-      <h1>UseMemo Hook</h1>
-      <h2>Count : {count}</h2>
-      <h2>item : {item}</h2>
-      <h2>{multiCountMemo}</h2>
-      <button onClick={()=> setCount(count+1)}>Update Count</button>
-      <button onClick={()=> setItem(item*5)}>Update Item</button>
-
-    </div>
-  )
+    this.state = {
+      color: "green",
+      updateColor: this.updateColor,
+    };
+  }
+  render() {
+    return (
+      <CommonContext.Provider value={this.state}>
+        <h1>Complete and esay example of Context api</h1>
+        <Main />
+        <UpdateButton />
+      </CommonContext.Provider>
+    );
+  }
 }
 
-export default App
+export default App;
